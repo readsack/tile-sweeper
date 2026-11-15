@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bvevff5rjouyt"]
+
+[ext_resource type="PackedScene" uid="uid://cqatsn5qbf1w0" path="res://assets/scene/player.tscn" id="1_821e4"]
+[ext_resource type="Script" uid="uid://bua7ldmh17wso" path="res://assets/scene/player.gd" id="2_0nmyk"]
+[ext_resource type="PackedScene" uid="uid://bm8elmwh1d58m" path="res://assets/scene/platform.tscn" id="3_0vk0l"]
+[ext_resource type="PackedScene" uid="uid://c1nb6fv3es263" path="res://assets/scene/levels/level2.tscn" id="3_2xo41"]
+[ext_resource type="Script" uid="uid://40pw14bhg0qg" path="res://assets/scene/tiles.gd" id="3_uu0fw"]
+[ext_resource type="Shader" uid="uid://c4aug3tx0eswo" path="res://assets/repeat.gdshader" id="5_fw18y"]
+[ext_resource type="PackedScene" uid="uid://coqhk2ntod7bw" path="res://assets/scene/border.tscn" id="5_mqc3k"]
+[ext_resource type="Texture2D" uid="uid://da6r8jkjfxith" path="res://assets/background.png" id="5_uu0fw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fw18y"]
+shader = ExtResource("5_fw18y")
+shader_parameter/SPEED = 0.5
+
+[node name="Node2D" type="Node2D" unique_id=687068729]
+
+[node name="Player" parent="." unique_id=62361808 node_paths=PackedStringArray("tiles") instance=ExtResource("1_821e4")]
+position = Vector2(252, 300)
+scale = Vector2(1, 1)
+script = ExtResource("2_0nmyk")
+tiles = NodePath("../tiles")
+next_level = ExtResource("3_2xo41")
+
+[node name="tiles" type="Node2D" parent="." unique_id=2063310596]
+script = ExtResource("3_uu0fw")
+
+[node name="platform" parent="tiles" unique_id=548293312 instance=ExtResource("3_0vk0l")]
+position = Vector2(308, 383)
+scale = Vector2(2, 1.5)
+
+[node name="platform2" parent="tiles" unique_id=1460972309 instance=ExtResource("3_0vk0l")]
+position = Vector2(396.00003, 296)
+rotation = 1.5707964
+scale = Vector2(2, 1.5)
+
+[node name="platform3" parent="tiles" unique_id=1016975727 instance=ExtResource("3_0vk0l")]
+position = Vector2(221.00002, 295)
+rotation = 1.5707964
+scale = Vector2(2, 1.5)
+
+[node name="platform4" parent="tiles" unique_id=2050867568 instance=ExtResource("3_0vk0l")]
+position = Vector2(308, 215)
+scale = Vector2(2, 1.5)
+
+[node name="borders" type="Node2D" parent="." unique_id=503514624]
+
+[node name="border" parent="borders" unique_id=1549022773 instance=ExtResource("5_mqc3k")]
+position = Vector2(318, 672)
+
+[node name="border2" parent="borders" unique_id=205849818 instance=ExtResource("5_mqc3k")]
+position = Vector2(-47.99997, 309.99997)
+rotation = 1.5707964
+
+[node name="border3" parent="borders" unique_id=313511301 instance=ExtResource("5_mqc3k")]
+position = Vector2(720, 301)
+rotation = 1.5707964
+
+[node name="border4" parent="borders" unique_id=1876070452 instance=ExtResource("5_mqc3k")]
+position = Vector2(317.99997, -60)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=306924201]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1392862846]
+material = SubResource("ShaderMaterial_fw18y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_uu0fw")
+stretch_mode = 1

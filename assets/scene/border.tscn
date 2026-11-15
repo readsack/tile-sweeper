@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://coqhk2ntod7bw"]
+
+[ext_resource type="Script" uid="uid://c3cm4ckt5hqgd" path="res://assets/scene/border_script.gd" id="1_71exx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwarf"]
+size = Vector2(16, 5)
+
+[node name="border" type="StaticBody2D" unique_id=1549022773 groups=["borders"]]
+scale = Vector2(50, 3)
+script = ExtResource("1_71exx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=864522422]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_pwarf")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bm8elmwh1d58m"]
+
+[ext_resource type="Script" uid="uid://cifokilwvpibi" path="res://assets/scene/platform.gd" id="1_37vcq"]
+[ext_resource type="Texture2D" uid="uid://c36g1unpbo65i" path="res://assets/New Piskel/sprite_0.png" id="2_37vcq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw18y"]
+size = Vector2(29, 16)
+
+[node name="platform" type="StaticBody2D" unique_id=548293312 groups=["platforms"]]
+script = ExtResource("1_37vcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709277264]
+position = Vector2(0, -1)
+texture = ExtResource("2_37vcq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=274336579]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_fw18y")
